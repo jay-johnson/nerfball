@@ -19,7 +19,7 @@ Please note this code is for educational purposes and not tested against all kno
 
 **Please explore these types of threats with care.**
 
-.. _Disclaimers and Warnings: https://github.com/jay-johnson/nerfball/README.rst#Disclaimers and Warnings
+.. _Disclaimers and Warnings: https://github.com/jay-johnson/nerfball#disclaimers-and-warnings
 
 Disclaimers and Warnings
 ========================
@@ -183,7 +183,7 @@ Explore Bad Stuff
         print("TEST DONE connecting to port={}".format(use_target_port))
         print("-----------------------------------------------------")
 
-    .. _Disclaimers and Warnings: https://github.com/jay-johnson/nerfball/README.rst#Disclaimers and Warnings
+    .. _Disclaimers and Warnings: https://github.com/jay-johnson/nerfball#disclaimers-and-warnings
 
 #.  Start python server that will be be targeted by one of the exploits
 
