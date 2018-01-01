@@ -1,0 +1,35 @@
+version: "2"
+
+services:
+
+  # Nerfball
+  nerfball:
+    # why alpine and not the standard python 3 or 2 container?
+    # https://thenewstack.io/alpine-linux-heart-docker/
+    image: jayjohnson/nerfball:latest
+    container_name: "nerfball"
+    hostname: nerfball
+    env_file:
+      # test the nerfs can be disabled and run:
+      # ./ssh.sh ; cd /opt/nerfball ; python setup.py test
+      # - ./docker/env/nerfball-test.env
+      # test with nerfs enabled
+      - ./docker/env/nerfball-dev.env
+    # turn off networking
+    network_mode: "none"
+    # turn off capabilities
+    # https://rhelblog.redhat.com/2016/10/17/secure-your-containers-with-this-one-weird-trick/
+    # https://github.com/docker/labs/tree/master/security/capabilities
+    cap_drop:
+      - all
+    # Be super careful as the container can mod the files in here - but it is nice to debug with
+    # volumes:
+    #   - ./docker/configs/control.cfg:/tmp/system/control.cfg
+    #   - ./nerfball:/opt/nerfball/nerfball
+    #   - ./badstuff/debug_internet_chemo.py:/opt/badstuff/internet_chemo.py
+    logging:
+      # limit logs retained on host to 25MB
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "50"
